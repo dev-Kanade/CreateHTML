@@ -1,12 +1,11 @@
-// ① バージョン確認
 async function checkVersion() {
-  const localVersion = require('./package.json').version; // ローカルversion
+  const localVersion = require('./package.json').version; 
   try {
-    const response = await fetch('https://raw.githubusercontent.com/ユーザー名/リポジトリ名/main/package.json');
+    const response = await fetch('https://raw.githubusercontent.com/dev_Kanade/CreateHTML/main/package.json');
     const githubData = await response.json();
     const githubVersion = githubData.version;
     if (localVersion !== githubVersion) {
-      document.getElementById('versionNotice').innerText = `バージョンが異なります（ローカル: ${localVersion}, GitHub: ${githubVersion}）。更新を推奨します。`;
+      document.getElementById('versionNotice').innerText = `更新が可能です。（現在: ${localVersion}, 最新: ${githubVersion}）。更新を推奨します。`;
     }
   } catch (error) {
     console.error('バージョン確認に失敗:', error);
@@ -14,13 +13,13 @@ async function checkVersion() {
 }
 checkVersion();
 
-// ② HTMLファイル生成ボタンのイベント
+
 document.getElementById('buildButton').addEventListener('click', () => {
   window.location.href = 'build.html';
 });
 
-// ③ ファイル一覧の表示
-const { fs, path } = require('fs').promises; // Electronのfsモジュール
+
+const { fs, path } = require('fs').promises; 
 (async () => {
   try {
     const htmlDir = path.join(__dirname, 'html');
@@ -35,7 +34,6 @@ const { fs, path } = require('fs').promises; // Electronのfsモジュール
     });
   } catch (error) {
     console.error('ファイル読み込みエラー:', error);
-    // htmlディレクトリがない場合、作成を試みる
     const htmlDir = path.join(__dirname, 'html');
     await fs.mkdir(htmlDir, { recursive: true });
   }
