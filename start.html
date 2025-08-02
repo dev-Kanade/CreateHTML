@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML生成ソフト</title>
+  <style>
+    body { background: #d3d3d3; font-family: Arial, sans-serif; }
+    .version-check { margin: 10px; }
+    .button { margin: 20px; padding: 10px; }
+    .file-card { display: inline-block; margin: 10px; padding: 10px; background: white; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="version-check">① バージョン確認</div>
+  <button class="button" onclick="window.location.href='build.html'">② HTMLファイル生成</button>
+  <div id="file-list"></div>
+
+  <script>
+    const htmlDir = path.join(__dirname, 'html');
+    fs.readdir(htmlDir, (err, files) => {
+      const fileList = document.getElementById('file-list');
+      files.forEach(file => {
+        const card = document.createElement('div');
+        card.className = 'file-card';
+        card.innerText = file;
+        card.onclick = () => window.location.href = `build.html?html=${file}`;
+        fileList.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>
