@@ -1,0 +1,12 @@
+{
+  "name": "createhtml",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "@electron/remote": "^2.0.1",
+    "electron": "^latest-version"
+  }
+}
