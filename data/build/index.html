@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ビルド</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <button onclick="navigate('home')">ホーム</button>
+    <button onclick="navigate('update')">アップデート</button>
+    <button onclick="navigate('settings')">設定</button>
+  </nav>
+  <button id="addHtml" onclick="navigate('./data/build/index')">+HTML</button>
+  <div id="buildArea" class="build-area"></div>
+  <div class="tab-container">
+    <button class="tab" onclick="showTab('text')">テキスト (GUI)</button>
+    <button class="tab" onclick="showTab('media')">メディア (GUI)</button>
+    <button class="tab" onclick="showTab('sns')">SNS (GUI)</button>
+  </div>
+  <button id="generateBtn" onclick="generateHTML()">生成</button>
+  <script src="script.js"></script>
+</body>
+</html>
