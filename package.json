@@ -1,7 +1,0 @@
-{
-  "name":"createhtml",
-  "version":"β1.0.0",
-  "scripts": {
-    "start": "electron ."
-  }
-}
