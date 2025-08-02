@@ -42,7 +42,7 @@ function renderCards(data) {
 
 function navigate(page, params = {}) {
   if (page === 'add') {
-    window.location.href = 'add.html';
+    window.location.href = './data/build/index.html';
   } else if (page === 'detail' && params.patch) {
     window.location.href = `detail.html?patch=${encodeURIComponent(params.patch)}`;
   } else {
@@ -51,3 +51,4 @@ function navigate(page, params = {}) {
 }
 
 window.onload = loadAndProcessFiles;
+
